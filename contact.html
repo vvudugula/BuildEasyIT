@@ -237,6 +237,7 @@
             emailjs.sendForm('service_8u6lwl5', 'template_rti3kue', this)
                 .then(function() {
                     alert('Your message has been sent successfully!');
+                   document.getElementById('contact-form').reset();
                 }, function(error) {
                     alert('Failed to send the message. Please try again later.');
                 });
