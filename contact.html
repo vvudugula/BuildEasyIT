@@ -81,24 +81,24 @@
           <div class="form_container">
             <div class="heading_container">
               <h2>
-                Request A Call back
+                Request A Callback
               </h2>
             </div>
-            <form action="">
+            <form id="contact-form" action="submit">
               <div>
-                <input type="text" placeholder="Full Name " />
+                <input type="text" id="name" name="name" required placeholder="Full Name " />
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                <input type="email" id="email" name="email" required placeholder="Email" />
               </div>
               <div>
-                <input type="text" placeholder="Phone number" />
+                <input type="text" id="contact" name="contact" required placeholder="Phone number" />
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" class="message-box" id="comments" name="comments" required placeholder="Message" />
               </div>
               <div class="d-flex ">
-                <button>
+                <button type="submit">
                   SEND
                 </button>
               </div>
@@ -159,8 +159,8 @@
             <h4>
               Stay Updated
             </h4>
-            <form action="#">
-              <input type="text" placeholder="Enter email" />
+            <form action="submit" id="contact-form">
+              <input type="text" id="email" name="email" required   placeholder="Enter email" />
               <button type="submit">
                 Subscribe
               </button>
@@ -224,6 +224,25 @@
     <!-- footer section -->
   </div>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("qTddWWpk6DcT5WeWf");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_8u6lwl5', 'template_rti3kue', this)
+                .then(function() {
+                    alert('Your message has been sent successfully!');
+                }, function(error) {
+                    alert('Failed to send the message. Please try again later.');
+                });
+        });
+    </script>
+  
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
