@@ -587,7 +587,7 @@ At Build Easy IT Solutions, we are dedicated to revolutionizing the way business
             <h4>
               Stay Updated
             </h4>
-            <form action="submit" id="contact-form">
+            <form id="contact-form1">
               <input type="text" id="email" name="email" required   placeholder="Enter email" />
               <button type="submit">
                 Subscribe
@@ -665,6 +665,18 @@ At Build Easy IT Solutions, we are dedicated to revolutionizing the way business
                 .then(function() {
                     alert('Your message has been sent successfully!');
                      document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Failed to send the message. Please try again later.');
+                });
+        });
+
+       document.getElementById('contact-form1').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_8u6lwl5', 'template_rti3kue', this)
+                .then(function() {
+                    alert('Your message has been sent successfully!');
+                   document.getElementById('contact-form1').reset();
                 }, function(error) {
                     alert('Failed to send the message. Please try again later.');
                 });
